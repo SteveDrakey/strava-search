@@ -1,17 +1,24 @@
 <mat-toolbar>
-    <a mat-button routerLink="/">Strava Super Search</a>
+    <a mat-button routerLink="/">Search</a>
     <span class="spacer"></span>
-    
-        <a mat-icon-button routerLink="/settings"><mat-icon>settings</mat-icon></a>      
-    
-  </mat-toolbar>
-  
+
+    <a mat-icon-button routerLink="/settings">
+        <mat-icon>settings</mat-icon>
+    </a>
+    <a href="https://www.strava.com">
+        <img height="46px" style="align-self: center;" src='assets/api_logo_pwrdBy_strava_stack_gray.png'>
+    </a>
+</mat-toolbar>
+
 <div fxLayout="row" fxLayoutAlign="space-around center">
     <div *ngIf='!authentication.currentAthlete'>
         <h1>Please connect to strava</h1>
-        <button mat-button (click)='connectToStrava()'>Connect Me</button>
+        <a style="background-image: url('/assets/btn_strava_connectwith_light.png');" (click)='connectToStrava()'>
+            <img src='assets/btn_strava_connectwith_light.png'>
+        </a>
     </div>
-    <div fxFlex="80">
+    <div fxFlex.gt-md="80">
         <router-outlet *ngIf='authentication.currentAthlete'></router-outlet>
+      
     </div>
 </div>

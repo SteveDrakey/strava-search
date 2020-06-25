@@ -2,7 +2,7 @@
 <button mat-button (click)='stopImportRides()'>Stop</button> -->
 <br>
 <div fxLayout="row wrap" FxLayoutAlign="space-around center" fxLayoutGap="12px">
-  <div fxFlexOffset='5' fxFlex='65'>
+  <div fxFlexOffset.gt-md='5' fxFlex='65'>
     <mat-form-field [style.fontSize.px]=22 class="example-full-width">
       <mat-label>Keyword</mat-label>
       <input (keydown.enter)='searchRides()' [ngModelOptions]="{standalone: true}" matInput placeholder="Keyword"
@@ -16,7 +16,7 @@
       <button mat-raised-button mat-button (click)='reset()'>Reset</button>
     </div>
   </div>
-  <div fxFlexOffset='5' fxFlex='65'>
+  <div fxFlexOffset.gt-md='5' fxFlex='65'>
     <div>
       <div *ngIf='segments'>Segment filter:
         {{segments | join:' ,'}}</div>
@@ -24,16 +24,23 @@
     <div *ngIf='city'>Places Filter:
       {{city}}
     </div>
+    <div *ngIf="!rides?.length">
+      <p>Don't see any results, you need to index your rides. Head over to the <a routerLink="/settings">settings</a>
+        page and import your rides</p>
+    </div>
+
   </div>
+
 </div>
 <br>
-<div  fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="12px">
+<div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="12px">
   <div fxFlex=70 fxLayout="column" fxLayoutGap="12px">
     <mat-card *ngFor="let item of rides">
       <mat-card-title fxLayout="row">
         <div fxFlex=90>
-          <a class='highlight' href='https://www.strava.com/activities/{{item.activity}}'
-            [innerHTML]='item?.highlights?.title || item.title | safeHtml'></a>
+          <div class='highlight' [innerHTML]='item?.highlights?.title || item.title | safeHtml'></div>
+          <a style="font-size: small;" class='highlight' href='https://www.strava.com/activities/{{item.activity}}'>
+            View this on strava</a>
         </div>
 
         <div fxFlex=10 fxLayoutAlign="end">
@@ -61,7 +68,6 @@
         </div>
       </mat-card-content>
     </mat-card>
-
   </div>
   <div *ngIf="facets$ | async as facets  " fxFlex.gt-md=30 fxLayout="column" fxLayoutGap="12px">
     <mat-card>
@@ -91,4 +97,6 @@
     </mat-card>
   </div>
 </div>
-<div> {{indexProgress | async}} </div>
+<div>
+
+</div>

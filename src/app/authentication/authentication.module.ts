@@ -36,7 +36,7 @@ export class AuthenticationModule {
       redirect_uri: `${location.origin}/`,
       response_type: 'code',
       approval_prompt: 'auto',
-      scope: scope || 'activity:read_all'
+      scope: scope || 'activity:read'
     };
 
     const url = 'https://www.strava.com/oauth/mobile/authorize';

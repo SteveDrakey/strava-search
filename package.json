@@ -13,7 +13,7 @@
     "build:app": "ng build",
     "build:functions": "netlify-lambda build functions",
     "deploy": "netlify-lambda deploy",
-    "buildindex": "node buildindex.js"
+    "buildindex": "node tools/buildindex.js"
   },
   "private": true,
   "dependencies": {
