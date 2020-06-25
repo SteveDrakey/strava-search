@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'GroupRidePR'`, () => {
+  it(`should have as title 'StravaSearch'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('GroupRidePR');
+    expect(app.title).toEqual('StravaSearch');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to GroupRidePR!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to StravaSearch!');
   });
 });

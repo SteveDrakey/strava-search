@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-title>Indexer</mat-card-title>
+    <mat-card-subtitle>This will import your rides into the search, its slow as we are limited by strava, its work in
+        progress and does not handle strava errors well</mat-card-subtitle>
+    <mat-card-content>
+        <div> Progress : {{indexProgress | async}} </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)='importRides()'>Import last few rides</button>
+        <button mat-button (click)='stopImportRides()'>Stop</button>
+    </mat-card-actions>
+</mat-card>
+<a routerLink="/">Back to search</a>
+
