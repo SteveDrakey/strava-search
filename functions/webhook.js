@@ -4,6 +4,7 @@ import oauth2, { config } from './utils/oauth'
 import request from 'request'
 
 
+
 /* Function to handle intercom auth callback */
 exports.handler = (event, context, callback) => {
 
@@ -79,8 +80,7 @@ exports.handler = (event, context, callback) => {
 }
 
 function requestWrapper(requestOptions, data) {
-  return new Promise((resolve, reject) => {
-
+  return new Promise((resolve, reject) => {    
     request.post('https://www.strava.com/oauth/token', { form: data }, (err, response, body) => {
       //request(requestOptions, (err, response, body) => {
       if (err) {
